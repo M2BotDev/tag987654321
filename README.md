@@ -1,4 +1,4 @@
-# tag987654321
+# Devs roblox bot!
 
-Bot link:
-# https://discordapp.com/oauth2/authorize?client_id=366365710743633930&scope=bot&permissions=2146958591
+Bot invite link:
+https://discordapp.com/oauth2/authorize?client_id=366365710743633930&scope=bot&permissions=2146958591
