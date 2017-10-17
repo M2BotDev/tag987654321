@@ -1,0 +1,2 @@
+python runbot.py
+pause
