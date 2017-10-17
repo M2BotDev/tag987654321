@@ -1,0 +1,4 @@
+discord.py==1.0.0a0
+aiohttp
+websockets
+requests
