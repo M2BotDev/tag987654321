@@ -154,4 +154,4 @@ async def on_message(message):
     except:
         return
     await bot.process_commands(message)
-bot.run(process.env.BOT_TOKEN)
+bot.run("MzY2MzY1NzEwNzQzNjMzOTMw.DLr0LA.kqJcAMeaNh26dPezFmIwJSCjia8")
