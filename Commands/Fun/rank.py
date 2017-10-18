@@ -20,7 +20,7 @@ class Rank:
         except:
             user = message.author
 
-        with open("Data\\servers.json") as filejson:
+        with open("Data/servers.json") as filejson:
             data = json.load(filejson)
 
         if str(message.guild.id) in data:
@@ -44,7 +44,7 @@ class Rank:
         embed.add_field(name="Required XP", value=authorin["LVL"] * 100, inline=True)
         embed.set_footer(text=f"{user.created_at}")
         await message.channel.send(embed=embed)
-        with open("Data\\servers.json", "w") as saveme:
+        with open("Data/servers.json", "w") as saveme:
             json.dump(data, saveme)
         
 

@@ -19,7 +19,7 @@ class Startgiveaway:
         if code == None:
             await message.channel.send("Please choose a code for your giveaway!")
             return
-        with open("Data\\giveaway.json", "r") as thejsonfile:
+        with open("Data/giveaway.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if not str(message.guild.id) in data:
             data[str(message.guild.id)] = {
@@ -34,9 +34,9 @@ class Startgiveaway:
         server["default-giveaway"] = code
         message.delete()
         await message.channel.send(message.author.name + f" has started a giveaway. <:nbaghost:368751631455748096> To join use the join command! (Ex. $join) or (Ex. $join {code})")
-        with open("Data\\giveaway.json", "w") as thejsonfile2:
+        with open("Data/giveaway.json", "w") as thejsonfile2:
             json.dump(data, thejsonfile2)
-        with open("Data\\servers.json", "r") as filejson:
+        with open("Data/servers.json", "r") as filejson:
             jsondatafile = json.load(filejson)
         try:
             logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])

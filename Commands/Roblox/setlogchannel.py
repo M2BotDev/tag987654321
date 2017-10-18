@@ -15,7 +15,7 @@ class Setlogchannel:
         channel = message.channel
         if message.author != message.guild.owner:
             return
-        with open("Data\\servers.json", "r") as serverfile:
+        with open("Data/servers.json", "r") as serverfile:
             serverfiledata = json.load(serverfile)
         if str(message.guild.id) in serverfiledata:
             serverin = serverfiledata[str(message.guild.id)]
@@ -24,7 +24,7 @@ class Setlogchannel:
             return
         try:
             serverin["log-channel"] = channel.id
-            with open("Data\\servers.json", "w") as serverf:
+            with open("Data/servers.json", "w") as serverf:
                 json.dump(serverfiledata, serverf)
         except Exception as e:
             print(e)

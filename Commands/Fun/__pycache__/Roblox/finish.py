@@ -11,7 +11,7 @@ class Finish:
     @commands.command(no_pm=True, pass_contex=True)
     async def finish(self,ctx):
         message = ctx.message
-        with open("Data\\verifiedusers.json", "r") as thejsonfile:
+        with open("Data/verifiedusers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
 
         if str(message.author.id) in data["users"]:

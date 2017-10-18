@@ -11,7 +11,7 @@ class Whois:
     @commands.command(no_pm=True, pass_contex=True)
     async def whois(self,ctx, person=None):
         message = ctx.message
-        with open("Data\\verifiedusers.json", "r") as thejsonfile:
+        with open("Data/verifiedusers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         users = data["users"]
         try:

@@ -16,7 +16,7 @@ class Verify:
     @commands.command(no_pm=True, pass_contex=True)
     async def verify(self,ctx, username=None):
         message = ctx.message
-        with open("Data\\servers.json", "r") as serverfile:
+        with open("Data/servers.json", "r") as serverfile:
             serverfiledata = json.load(serverfile)
         if str(message.guild.id) in serverfiledata:
             serverin = serverfiledata[str(message.guild.id)]
@@ -36,7 +36,7 @@ class Verify:
         text = source.text
         jsonversion = json.loads(text)
         random.seed()
-        with open("Data\\verifiedusers.json", "r") as thejsonfile:
+        with open("Data/verifiedusers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         code = letters_one[random.randrange(0, len(letters_one) - 1)] + " " + letters_two[random.randrange(0, len(letters_two) - 1)] + " " + letters_three[random.randrange(0, len(letters_three) - 1)] + " " + letters_four[random.randrange(0, len(letters_four) - 1)] + ""
         if "Id" in jsonversion:

@@ -16,7 +16,7 @@ class Entered:
             pass
         else:
             return
-        with open("Data\\giveaway.json", "r") as thejsonfile:
+        with open("Data/giveaway.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if not (str(message.guild.id) in data):
             print("Not there!")

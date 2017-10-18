@@ -27,7 +27,7 @@ class Subtract:
         except:
             person = message.author
             
-        with open("Data\\servers.json", "r") as thejsonfile:
+        with open("Data/servers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if str(message.guild.id) in data:
             try:
@@ -37,9 +37,9 @@ class Subtract:
                     ("credits") : -amount
                 }
             await message.channel.send(f"Subtracted ``{amount}`` to ``{person}``'s balance. <:nbaghost:368751631455748096> They now have ``{data[str(message.guild.id)]['tickets-storage'][str(person.id)]['credits']}`` tickets.")
-            with open("Data\\servers.json", "w") as thejsonfile2:
+            with open("Data/servers.json", "w") as thejsonfile2:
                 json.dump(data, thejsonfile2)
-            with open("Data\\servers.json", "r") as filejson:
+            with open("Data/servers.json", "r") as filejson:
                 jsondatafile = json.load(filejson)
             if str(message.guild.id) in jsondatafile:
                 try:

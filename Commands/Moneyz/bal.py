@@ -17,7 +17,7 @@ class Bal:
         except:
             person = message.author
             
-        with open("Data\\servers.json", "r") as thejsonfile:
+        with open("Data/servers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if str(message.guild.id) in data:
             try:
@@ -27,7 +27,7 @@ class Bal:
                     ("credits") : 0
                 }
             await message.channel.send(f"``{person}`` has ``{data[str(message.guild.id)]['tickets-storage'][str(person.id)]['credits']}`` tickets. <:nbaghost:368751631455748096>")
-            with open("Data\\servers.json", "w") as thejsonfile2:
+            with open("Data/servers.json", "w") as thejsonfile2:
                 json.dump(data, thejsonfile2)
         else:
             await message.channel.send("For some reason your server isn't verified. Please kick and reinvite the bot!")

@@ -24,7 +24,7 @@ class Leaderboard:
     async def leaderboard(self,ctx):
         message = ctx.message
         person = message.author
-        with open("Data\\servers.json", "r") as thejsonfile:
+        with open("Data/servers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if str(message.guild.id) in data:
             first = ["", 0]

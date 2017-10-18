@@ -16,12 +16,12 @@ class Prefix:
             pass
         else:
             return
-        with open("Data\\servers.json", "r") as thejsonfile:
+        with open("Data/servers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if str(message.guild.id) in data:
             data[str(message.guild.id)]["prefix"] = pre
             await message.channel.send(f"<:nbaghost:368751631455748096> Prefix was set to ``{pre}``")
-            with open("Data\\servers.json", "w") as thejsonfile2:
+            with open("Data/servers.json", "w") as thejsonfile2:
                 json.dump(data, thejsonfile2)
             try:
                 logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])

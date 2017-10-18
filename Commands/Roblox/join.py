@@ -12,7 +12,7 @@ class Join:
     @commands.command(no_pm=True, pass_contex=True)
     async def join(self,ctx, code=None):
         message = ctx.message
-        with open("Data\\giveaway.json", "r") as thejsonfile:
+        with open("Data/giveaway.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if not str(message.guild.id) in data:
             return
@@ -31,7 +31,7 @@ class Join:
             await message.channel.send("Thanks for joining the giveaway! <:nbaghost:368751631455748096>")
         
 
-        with open("Data\\giveaway.json", "w") as thejsonfile2:
+        with open("Data/giveaway.json", "w") as thejsonfile2:
             json.dump(data, thejsonfile2)
 
 

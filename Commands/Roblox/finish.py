@@ -12,7 +12,7 @@ class Finish:
     @commands.command(no_pm=True, pass_contex=True)
     async def finish(self,ctx):
         message = ctx.message
-        with open("Data\\servers.json", "r") as serverfile:
+        with open("Data/servers.json", "r") as serverfile:
             serverfiledata = json.load(serverfile)
         if str(message.guild.id) in serverfiledata:
             serverin = serverfiledata[str(message.guild.id)]
@@ -23,7 +23,7 @@ class Finish:
         else:
             await message.channel.send("Your server doesn't seem to be verified. Please kick and reinvite the bot!")
             return
-        with open("Data\\verifiedusers.json", "r") as thejsonfile:
+        with open("Data/verifiedusers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
 
         if str(message.author.id) in data["users"]:

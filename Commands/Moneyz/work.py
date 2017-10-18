@@ -24,7 +24,7 @@ class Work:
     async def work(self,ctx):
         message = ctx.message
         person = message.author
-        with open("Data\\servers.json", "r") as thejsonfile:
+        with open("Data/servers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if str(message.guild.id) in data:
             try:
@@ -47,7 +47,7 @@ class Work:
                 authorchar["credits"] -= w
                 msg = random.choice(typeserror) + f" ``-{w} tickets`` <:nbaghost:368751631455748096>"
             await message.channel.send(msg)
-            with open("Data\\servers.json", "w") as thejsonfile2:
+            with open("Data/servers.json", "w") as thejsonfile2:
                 json.dump(data, thejsonfile2)
         else:
             await message.channel.send("For some reason your server isn't verified. Please kick and reinvite the bot!")

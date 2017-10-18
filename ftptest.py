@@ -21,7 +21,7 @@ def reverse_jsonify(m):
 
 def upload(ftp, verifytable):
     ftp.delete("verify.json")
-    ftp.storbinary("STOR verify.json", open("Data\\VerifiedUsers.json", "rb"), 1024)
+    ftp.storbinary("STOR verify.json", open("Data/VerifiedUsers.json", "rb"), 1024)
  
 def read(ftp):
     ftp.retrbinary("RETR verify.json", reverse_jsonify)

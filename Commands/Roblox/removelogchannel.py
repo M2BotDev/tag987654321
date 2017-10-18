@@ -15,7 +15,7 @@ class Removelogchannel:
         channel = "__disabled__"
         if message.author != message.guild.owner:
             return
-        with open("Data\\servers.json", "r") as serverfile:
+        with open("Data/servers.json", "r") as serverfile:
             serverfiledata = json.load(serverfile)
         if str(message.guild.id) in serverfiledata:
             serverin = serverfiledata[str(message.guild.id)]
@@ -24,7 +24,7 @@ class Removelogchannel:
             return
         try:
             serverin["log-channel"] = channel
-            with open("Data\\servers.json", "w") as serverf:
+            with open("Data/servers.json", "w") as serverf:
                 json.dump(serverfiledata, serverf)
         except Exception as e:
             print(e)

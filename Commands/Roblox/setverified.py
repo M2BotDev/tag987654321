@@ -14,7 +14,7 @@ class Setverified:
         message = ctx.message
         if message.author != message.guild.owner:
             return
-        with open("Data\\servers.json", "r") as serverfile:
+        with open("Data/servers.json", "r") as serverfile:
             serverfiledata = json.load(serverfile)
         if str(message.guild.id) in serverfiledata:
             serverin = serverfiledata[str(message.guild.id)]
@@ -27,13 +27,13 @@ class Setverified:
             return
         try:
             serverin["verified-role"] = theserverrole.id
-            with open("Data\\servers.json", "w") as serverf:
+            with open("Data/servers.json", "w") as serverf:
                 json.dump(serverfiledata, serverf)
         except Exception as e:
             print(e)
             return
         await message.channel.send(f"Set the verification role to <:nbaghost:368751631455748096> ``{role}``")
-        with open("Data\\servers.json", "r") as filejson:
+        with open("Data/servers.json", "r") as filejson:
             jsondatafile = json.load(filejson)
         if str(message.guild.id) in jsondatafile:
             try:

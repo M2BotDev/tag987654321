@@ -29,7 +29,7 @@ class Donate:
             await message.channel.send("Please enter a valid person to donate to. (Ex. $donate 2000 @MyFriend#1123")
             return
             
-        with open("Data\\servers.json", "r") as thejsonfile:
+        with open("Data/servers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
         if str(message.guild.id) in data:
             try:
@@ -46,7 +46,7 @@ class Donate:
                 data[str(message.guild.id)]["tickets-storage"][str(message.author.id)]["credits"] -= amount
                 
             await message.channel.send(f"<:nbaghost:368751631455748096> Donated ``{amount}`` to ``{person}``'s balance. They now have ``{data[str(message.guild.id)]['tickets-storage'][str(person.id)]['credits']}`` tickets.")
-            with open("Data\\servers.json", "w") as thejsonfile2:
+            with open("Data/servers.json", "w") as thejsonfile2:
                 json.dump(data, thejsonfile2)
         else:
             await message.channel.send("For some reason your server isn't verified. Please kick and reinvite the bot!")

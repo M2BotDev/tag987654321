@@ -27,7 +27,7 @@ class Purge:
         await message.delete()
         await message.channel.purge(limit = int(amount), bulk = True)
         await message.channel.send(f"Purged {amount} messages! <:nbaghost:368751631455748096>")
-        with open("Data\\servers.json", "r") as filejson:
+        with open("Data/servers.json", "r") as filejson:
             jsondatafile = json.load(filejson)
         if str(message.guild.id) in jsondatafile:
             try:
