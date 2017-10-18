@@ -103,7 +103,6 @@ async def on_message_edit(before, after):
         return
 @bot.event
 async def on_ready():
-    bot.user.edit(avatar=open("avatar.png", "rb"))
     if __name__ == "__main__":
         for extension in cmds:
             try:
