@@ -39,26 +39,21 @@ class Urban:
         if word == None:
             await message.channel.send("Please enter something for me to search!")
             return
-        nword = word.lower()
-        lookfor = f"<p>There aren't any definitions for <i>{nword}</i> yet.</p>"
         word = re.sub(" ", "+", word.lower())
         link = f"https://www.urbandictionary.com/define.php?term={word}"
         source = requests.get(link)
         text = source.text
-        soup = BeautifulSoup(text)
-        if lookfor in text:
+        jsonv = json.loads(text)
+        if jsonv["tesult_type"] == "no_results":
             await message.channel.send("That word doesn't exist!")
             return
-        b4 = soup.find("div", "meaning")
-        b42 = b4.get_text()
-        b42 = re.sub("&apos;", "'", b42)
-        b422 = soup.find("div", "example")
-        b4222 = b422.get_text()
-        b4222 = re.sub("&apos;", "'", b4222)
+        first = jsonv["list"][0]
         embed=discord.Embed(color=0x8e370d)
-        embed.add_field(name="Definition", value=f"{b42}", inline=False)
-        embed.add_field(name="Example", value=f"{b4222}", inline=False)
-        embed.set_author(name=f"Urban - {nword}", url=link, icon_url=message.author.avatar_url)
+        embed.add_field(name="Definition", value=f"{first['definition']}", inline=False)
+        embed.add_field(name="Example", value=f"{first['example']}", inline=False)
+        embed.add_field(name="Thumbs Up", value=f"{first['thumbs_up']}", inline=False)
+        embed.add_field(name="Author", value=f"{first['author']}", inline=False)
+        embed.set_author(name=f"Urban - {first['word']}", url=link, icon_url=message.author.avatar_url)
 
         await message.channel.send(embed=embed)
         
