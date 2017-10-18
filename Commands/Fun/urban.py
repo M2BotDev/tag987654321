@@ -40,7 +40,7 @@ class Urban:
             await message.channel.send("Please enter something for me to search!")
             return
         word = re.sub(" ", "+", word.lower())
-        link = f"https://www.urbandictionary.com/define.php?term={word}"
+        link = f"http://api.urbandictionary.com/v0/define?term={word}"
         source = requests.get(link)
         text = source.text
         jsonv = json.loads(text)
