@@ -28,7 +28,7 @@ class Verify:
             await message.channel.send("Your server doesn't seem to be verified. Please kick and reinvite the bot!")
             return
         if username == None:
-            await message.channel.send("Please enter your roblox username.")
+            await message.channel.send("Please enter your roblox name when doing this command. Ex. $verify Builderman")
             return
         link = "https://api.roblox.com/users/get-by-username?username="+username
         link2 = "https://www.roblox.com/users/{zid}/profile"

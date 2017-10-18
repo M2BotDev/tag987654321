@@ -114,16 +114,25 @@ async def on_ready():
                                 bl(l + "." + x, e[x])
                             elif e[x].endswith('.py'):
                                 bot.load_extension("Commands." + l + "." + x)
-                                print("Loaded")
                     bl(extension, cmds[extension])
                 else:
                     bot.load_extension("Commands." + extension)
             except Exception as e:
                 exc = '{}: {}'.format(type(e).__name__, e)
                 print('Failed to load extension {}\n{}'.format(extension, exc))
+    print("Ready!")
 
 @bot.event
 async def on_message(message):
+    pre = "$"
+    with open("data/servers.json") as serverjson:
+        serverdata = json.load(serverjson)
+    x = message.guild
+    if str(x.id) in serverdata:
+        pre = serverdata[str(x.id)]["prefix"]
+
+    if message.content.lower().startswith(bot.user.mention + " prefix"):
+        await message.channel.send(f"Prefix is {pre}")
     with open("Data\\servers.json") as theserverjsonforlevels:
         data = json.load(theserverjsonforlevels)
     user = message.author
