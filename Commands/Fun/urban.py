@@ -56,8 +56,8 @@ class Urban:
         b4222 = b422.get_text()
         b4222 = re.sub("&apos;", "'", b4222)
         embed=discord.Embed(color=0x8e370d)
-        embed.add_field(name="Definition", value=f"{b42}", inline=True)
-        embed.add_field(name="Example", value=f"{b4222}", inline=True)
+        embed.add_field(name="Definition", value=f"{b42}", inline=False)
+        embed.add_field(name="Example", value=f"{b4222}", inline=False)
         embed.set_author(name=f"Urban - {nword}", url=link, icon_url=message.author.avatar_url)
 
         await message.channel.send(embed=embed)
