@@ -44,7 +44,7 @@ class Urban:
         source = requests.get(link)
         text = source.text
         jsonv = json.loads(text)
-        if jsonv["tesult_type"] == "no_results":
+        if jsonv["result_type"] == "no_results":
             await message.channel.send("That word doesn't exist!")
             return
         first = jsonv["list"][0]
