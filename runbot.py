@@ -20,7 +20,7 @@ loopthrough("Commands", cmds)
     
 
 async def getpre(bot, message):
-    with open("data\\servers.json") as serverjson:
+    with open("Data\\servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
@@ -34,7 +34,7 @@ bot.remove_command("help")
 @bot.event
 async def on_guild_join(guild):
     try:
-        with open("data\\servers.json") as serverjsona:
+        with open("Data\\servers.json") as serverjsona:
             guilddata = json.load(serverjsona)
         if str(guild.id) in guilddata:
             pass
@@ -46,7 +46,7 @@ async def on_guild_join(guild):
                 ("verified-role"): "__disabled__",
                 ("tickets-storage") : {}
             }
-            with open("data\\servers.json", "w") as serverjson2:
+            with open("Data\\servers.json", "w") as serverjson2:
                 json.dump(guilddata, serverjson2)
     except Exception as e:
         print(e)
@@ -125,7 +125,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     pre = "$"
-    with open("data\\servers.json") as serverjson:
+    with open("Data\\servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
