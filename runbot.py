@@ -20,7 +20,7 @@ loopthrough("Commands", cmds)
     
 
 async def getpre(bot, message):
-    with open("Data\\servers.json") as serverjson:
+    with open("Data/servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
@@ -34,7 +34,7 @@ bot.remove_command("help")
 @bot.event
 async def on_guild_join(guild):
     try:
-        with open("Data\\servers.json") as serverjsona:
+        with open("Data/servers.json") as serverjsona:
             guilddata = json.load(serverjsona)
         if str(guild.id) in guilddata:
             pass
@@ -46,13 +46,13 @@ async def on_guild_join(guild):
                 ("verified-role"): "__disabled__",
                 ("tickets-storage") : {}
             }
-            with open("Data\\servers.json", "w") as serverjson2:
+            with open("Data/servers.json", "w") as serverjson2:
                 json.dump(guilddata, serverjson2)
     except Exception as e:
         print(e)
     for channel in guild.channels:
         try:
-            await channel.send("Thanks for inviting me! Here are some things you might want to know before getting started!\n\n**Verification**\nYou can do $setverified ROLENAME to change the role that users get when verifying. If the role doesn't exist they can't verify.\n**Logs**\nGo into the channel you'd like to use for logs and do $setlogchannel to receive logs there. If you don't like the logs you can do $removelogchannel to stop the bot from sending logs there. Or you can move it to a different channel.\n**Prefix**\nIncase the bots prefix overlaps with another bot you can do $prefix NEWPREFIX to change it. Keep in mind if you want to change the prefix again you have to use your new prefix for the prefix command.")
+            await channel.send("Thanks for inviting me! Here are some things you might want to know before getting started!/n/n**Verification**/nYou can do $setverified ROLENAME to change the role that users get when verifying. If the role doesn't exist they can't verify./n**Logs**/nGo into the channel you'd like to use for logs and do $setlogchannel to receive logs there. If you don't like the logs you can do $removelogchannel to stop the bot from sending logs there. Or you can move it to a different channel./n**Prefix**/nIncase the bots prefix overlaps with another bot you can do $prefix NEWPREFIX to change it. Keep in mind if you want to change the prefix again you have to use your new prefix for the prefix command.")
             return
         except Exception as e:
             print(e)
@@ -60,7 +60,7 @@ async def on_guild_join(guild):
 
 @bot.event
 async def on_message_delete(message):
-    with open("Data\\servers.json", "r") as filejson:
+    with open("Data/servers.json", "r") as filejson:
         jsondatafile = json.load(filejson)
     if str(message.guild.id) in jsondatafile:
         try:
@@ -82,7 +82,7 @@ async def on_message_edit(before, after):
     message = after
     if after.content == before.content:
         return
-    with open("Data\\servers.json", "r") as filejson:
+    with open("Data/servers.json", "r") as filejson:
         jsondatafile = json.load(filejson)
     try:
         if str(message.guild.id) in jsondatafile:
@@ -118,13 +118,13 @@ async def on_ready():
                     bot.load_extension("Commands." + extension)
             except Exception as e:
                 exc = '{}: {}'.format(type(e).__name__, e)
-                print('Failed to load extension {}\n{}'.format(extension, exc))
+                print('Failed to load extension {}/n{}'.format(extension, exc))
     print("Ready!")
 
 @bot.event
 async def on_message(message):
     pre = "$"
-    with open("Data\\servers.json") as serverjson:
+    with open("Data/servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
@@ -132,7 +132,7 @@ async def on_message(message):
 
     if message.content.lower().startswith(bot.user.mention + " prefix"):
         await message.channel.send(f"Prefix is {pre}")
-    with open("Data\\servers.json") as theserverjsonforlevels:
+    with open("Data/servers.json") as theserverjsonforlevels:
         data = json.load(theserverjsonforlevels)
     user = message.author
     try:
@@ -157,7 +157,7 @@ async def on_message(message):
                 authorin["XP"] -= authorin["LVL"] * 100
                 authorin["LVL"] += 1
                 await message.channel.send(f"{user.mention}, Good job on ranking up! You're now level {authorin['LVL']}!")
-        with open("Data\\servers.json", "w") as theserverjsonforlevels2:
+        with open("Data/servers.json", "w") as theserverjsonforlevels2:
             json.dump(data,theserverjsonforlevels2)
     except:
         return
