@@ -49,9 +49,10 @@ class Urban:
             return
         first = jsonv["list"][0]
         embed=discord.Embed(color=0x8e370d)
-        embed.add_field(name="Definition", value=f"{first['definition']}", inline=False)
+        embed.add_field(name="Definition", value=f":zzz:{first['definition']}", inline=False)
         embed.add_field(name="Example", value=f"{first['example']}", inline=False)
-        embed.add_field(name="Thumbs Up", value=f"{first['thumbs_up']}", inline=False)
+        embed.add_field(name=":thumbsdown: ", value=f"{first['thumbs_up']}", inline=False)
+        embed.add_field(name=":thumbsup: ", value=f"{first['thumbs_down']}", inline=False)
         embed.add_field(name="Author", value=f"{first['author']}", inline=False)
         embed.set_author(name=f"Urban - {first['word']}", url=link, icon_url=message.author.avatar_url)
 
