@@ -49,7 +49,7 @@ class Urban:
             return
         first = jsonv["list"][0]
         embed=discord.Embed(color=0x8e370d)
-        embed.add_field(name="Definition", value=f":zzz:{first['definition']}", inline=False)
+        embed.add_field(name="Definition", value=f":arrow_forward: {first['definition']} :arrow_backward:", inline=False)
         embed.add_field(name="Example", value=f"{first['example']}", inline=False)
         embed.add_field(name=":thumbsdown: ", value=f"{first['thumbs_up']}", inline=True)
         embed.add_field(name=":thumbsup: ", value=f"{first['thumbs_down']}", inline=True)
