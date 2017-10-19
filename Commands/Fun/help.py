@@ -30,7 +30,7 @@ class Help:
     @commands.command(no_pm=True, pass_contex=True)
     async def help(self,ctx, cmd=None):
         message = ctx.message
-        aembed=discord.Embed(title="Here are a list of available catagories.", description="<:nbaghost:368751631455748096>", color=0x8e370d)
+        aembed=discord.Embed(title=":regional_indicator_c: :regional_indicator_a: :regional_indicator_t: :regional_indicator_e: :regional_indicator_g: :regional_indicator_o: :regional_indicator_r: :regional_indicator_i: :regional_indicator_e: :regional_indicator_s: ", description="\u200b", color=0x8e370d)
         aembed.set_author(name="HELP", icon_url=message.author.avatar_url)
         aembed.set_footer(text=message.created_at)
         if cmd == None:
@@ -42,7 +42,7 @@ class Help:
 
             await message.channel.send(embed=aembed)
         else:
-            embed=discord.Embed(title="Here are a list of available commands and catagories.", description="<:nbaghost:368751631455748096>", color=0x8e370d)
+            embed=discord.Embed(title=":regional_indicator_c: :regional_indicator_o: :regional_indicator_m: :regional_indicator_m: :regional_indicator_a: :regional_indicator_n: :regional_indicator_d: :regional_indicator_s: ", description="\u200b", color=0x8e370d)
             xgg = 0
             def loop(xname, inside, embed, xgg):
                 for i in inside:
