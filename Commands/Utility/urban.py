@@ -47,13 +47,22 @@ class Urban:
             await message.channel.send("That word doesn't exist!")
             return
         first = jsonv["list"][0]
-        embed=discord.Embed(color=0x8e370d)
-        embed.add_field(name="Definition", value=f":arrow_forward: {first['definition']} :arrow_backward:", inline=False)
-        embed.add_field(name="Example", value=f"{first['example']}", inline=False)
-        embed.add_field(name=":thumbsup: ", value=f"{first['thumbs_up']}", inline=True)
-        embed.add_field(name=":thumbsdown: ", value=f"{first['thumbs_down']}", inline=True)
-        embed.add_field(name="Author", value=f"{first['author']}", inline=False)
-        embed.set_author(name=f"Urban - {first['word']}", url=link, icon_url=message.author.avatar_url)
+        try:
+            embed=discord.Embed(color=0x8e370d)
+            embed.add_field(name="Definition", value=f":arrow_forward: {first['definition']} :arrow_backward:", inline=False)
+            embed.add_field(name="Example", value=f"{first['example']}", inline=False)
+            embed.add_field(name=":thumbsup: ", value=f"{first['thumbs_up']}", inline=True)
+            embed.add_field(name=":thumbsdown: ", value=f"{first['thumbs_down']}", inline=True)
+            embed.add_field(name="Author", value=f"{first['author']}", inline=False)
+            embed.set_author(name=f"Urban - {first['word']}", url=link, icon_url=message.author.avatar_url)
+        except:
+            embed=discord.Embed(color=0x8e370d)
+            embed.add_field(name="Definition", value=f":arrow_forward: {first['definition'][len(first['definition']) - 1000]} :arrow_backward:", inline=False)
+            embed.add_field(name="Example", value=f"{first['example']}", inline=False)
+            embed.add_field(name=":thumbsup: ", value=f"{first['thumbs_up']}", inline=True)
+            embed.add_field(name=":thumbsdown: ", value=f"{first['thumbs_down']}", inline=True)
+            embed.add_field(name="Author", value=f"{first['author']}", inline=False)
+            embed.set_author(name=f"Urban - {first['word']}", url=link, icon_url=message.author.avatar_url)
 
         await message.channel.send(embed=embed)
         
