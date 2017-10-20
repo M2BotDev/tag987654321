@@ -10,7 +10,7 @@ import re
 
 
 class Vote:
-    """$**vote QUESTION**"""
+    """Sends a message with your question. ``$vote Should we use categories?``"""
     def __init__(self, bot):
         self.bot = bot
     @commands.has_permissions(manage_messages=True)

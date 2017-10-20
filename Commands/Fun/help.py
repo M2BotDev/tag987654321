@@ -23,7 +23,7 @@ def capitalize_nth(s, n):
     return s[:n].lower() + s[n:].capitalize()
 
 class Help:
-    """$**help** or **help CATAGORYNAME**"""
+    """Displays all the categories and commands. ``$help fun``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Help Command"

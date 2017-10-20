@@ -5,7 +5,7 @@ import random
 import requests
 
 class Purge:
-    """$**purge 85**"""
+    """Deletes a bunch of messages at once. ``$purge 80`` ``Requires remove messages permission``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

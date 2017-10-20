@@ -5,7 +5,7 @@ import random
 import requests
 
 class Donate:
-    """$**donate 10 @user#1234**"""
+    """Donates tickets to a discord member. ``$donate 30 @user#1234``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

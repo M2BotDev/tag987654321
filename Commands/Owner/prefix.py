@@ -5,7 +5,7 @@ import random
 import requests
 
 class Prefix:
-    """$**prefix** or **prefix ?**"""
+    """Changes the prefix for the bot. ``$prefix 1`` ``You can do @bot#1234 prefix to check the prefix.``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

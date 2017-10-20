@@ -5,7 +5,7 @@ import random
 import requests
 
 class Getwinner:
-    """$**getwinner** or **getwinner GIVEAWAY-NAME**"""
+    """Gets the winner of your giveaway. ``$getwinner CODE``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

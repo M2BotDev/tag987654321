@@ -5,7 +5,7 @@ import random
 import requests
 
 class Subtract:
-    """$**subtract 20** or **subtract 20 @user$1234**"""
+    """Subtracts tickets to a discord user. ``$subtract 20 @user#1234`` ``Requires you to be the owner of the discord server.``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

@@ -11,7 +11,7 @@ import math
 
 
 class Code:
-    """$**code CODE** or **code CODEBLOCK**"""
+    """``Command limited to bot creater only!``"""
     def __init__(self, bot):
         self.bot = bot
     @commands.command(no_pm=True, pass_contex=True)

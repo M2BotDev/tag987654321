@@ -5,7 +5,7 @@ import random
 import requests
 
 class Gamble:
-    """$**gamble 50**"""
+    """Gambles a certain amount of tickets. ``$gamble 20``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

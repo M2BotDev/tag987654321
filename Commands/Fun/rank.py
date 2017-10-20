@@ -5,7 +5,7 @@ import random
 import requests
 
 class Rank:
-    """$**rank** or **rank @user#1234**"""
+    """Gets the level and experience of a discord member. ``$rank @user#1234``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

@@ -5,7 +5,7 @@ import random
 import requests
 
 class Entered:
-    """$**entered** or **entered GIVEAWAY-NAME**"""
+    """Gets the amount of people who entered your giveaway. ``$entered CODE``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

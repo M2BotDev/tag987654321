@@ -5,7 +5,7 @@ import random
 import requests
 
 class Add:
-    """$**add 20** or **add 20 @user$1234**"""
+    """Adds tickets to a discord user. ``$add 20 @user#1234`` ``Requires you to be the owner of the discord server.``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

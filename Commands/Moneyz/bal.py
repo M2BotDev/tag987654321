@@ -5,7 +5,7 @@ import random
 import requests
 
 class Bal:
-    """$**bal** or **bal @user#1234**"""
+    """Gets a discord members balance of tickets. ``$bal @user#1234``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

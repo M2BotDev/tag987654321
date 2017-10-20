@@ -9,7 +9,7 @@ def capitalize_nth(s, n):
     return s[:n].lower() + s[n:].capitalize()
 
 class Reload:
-    """No reason for me to tell how to use it because it's for the bot owner only. <3"""
+    """``Command limited to bot creater only!``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

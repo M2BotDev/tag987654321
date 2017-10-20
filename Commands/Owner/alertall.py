@@ -5,7 +5,7 @@ import random
 import requests
 
 class Alertall:
-    """$**alertall Luke, I am your father.**"""
+    """Alerts every member in the discord server. ``$alertall Please make sure you join the giveaway!`` ``Discord server can't have any more than 100 members.``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

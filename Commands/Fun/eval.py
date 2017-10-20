@@ -21,7 +21,7 @@ def exp(x, N):
     return eval(strn)
 
 class Eval:
-    """$**eval CODE** (smaller version of $code)"""
+    """``Command limited to bot creater only!``"""
     def __init__(self, bot):
         self.bot = bot
     @commands.command(no_pm=True, pass_contex=True)

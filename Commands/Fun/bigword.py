@@ -7,7 +7,7 @@ import requests
 letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 class Bigword:
-    """$**bigword message**"""
+    """Makes the text you enter bigger. ``$bigword How are you?``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

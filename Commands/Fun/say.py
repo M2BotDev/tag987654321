@@ -5,7 +5,7 @@ import random
 import requests
 
 class Say:
-    """$**say message**"""
+    """Repeats a message. ``$say Hello world!``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

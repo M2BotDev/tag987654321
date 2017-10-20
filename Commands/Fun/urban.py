@@ -29,7 +29,7 @@ def spider(min, max):
 spider(1, 3000000)
 """
 class Urban:
-    """$**urban WORD** or **urban PHRASE**"""
+    """Searches for a word on urban dictionary. ``$urban roblox``"""
     def __init__(self, bot):
         self.bot = bot
     @commands.has_permissions(manage_messages=True)

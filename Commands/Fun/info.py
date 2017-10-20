@@ -5,7 +5,7 @@ import random
 import requests
 
 class Info:
-    """$**userinfo** or **userinfo @user#1234**"""
+    """Gets the information of a discord member. ``$info @user#1234``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

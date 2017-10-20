@@ -7,7 +7,7 @@ from discord.ext.commands.cooldowns import BucketType
 typeserror = ["You fell asleep on the job and the boss decided to give you a break. Good luck paying for the family!", "Don't you just hate it when you accidently take money from work?", "You woke up with a cold and decided to stay home",
               "Your boss gave you a 'few days off'! Turns out you were fired.", "You're fired! Find a new job.", "You got picked on at work and cried in your customers food. FIRED!", "You got roasted by your boss."]
 class Leaderboard:
-    """$**leaderboard**"""
+    """Gets the top 5 people with the most ticket balances. ``$leaderboard``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Currency"
