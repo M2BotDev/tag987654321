@@ -64,11 +64,11 @@ async def on_message_delete(message):
         jsondatafile = json.load(filejson)
     if str(message.guild.id) in jsondatafile:
         try:
-            whofrom = message.author.name
+            whofrom = message.author
             action = f"Deleted message"
             created_at = message.created_at
             embed=discord.Embed(title=f"Edited log from {whofrom.display_name}({whofrom.id})", color=0x8e370d)
-            embed.add_field(name="MESSAGE", value=message.content, inline=False)
+            embed.add_field(name="**MESSAGE**", value=message.content, inline=False)
             embed.add_field(name="**CHANNEL**", value=after.channel, inline=False)
             embed.set_footer(text=created_at)
             logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
@@ -88,7 +88,7 @@ async def on_message_edit(before, after):
     try:
         if str(message.guild.id) in jsondatafile:
             try:
-                whofrom = message.author.name
+                whofrom = message.author
                 created_at = message.created_at
                 embed=discord.Embed(title=f"Edited log from {whofrom.display_name}({whofrom.id})", color=0x8e370d)
                 embed.add_field(name="**BEFORE**", value=before.content, inline=False)
