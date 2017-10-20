@@ -13,7 +13,6 @@ class Vote:
     """Sends a message with your question. ``$vote Should we use categories?``"""
     def __init__(self, bot):
         self.bot = bot
-    @commands.has_permissions(manage_messages=True)
     @commands.command(no_pm=True, pass_contex=True)
     async def vote(self,ctx,*,asking=None):
         x = ctx.message
