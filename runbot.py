@@ -74,6 +74,7 @@ async def on_message_delete(message):
             logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
             await logchannel.send(embed=embed)
         except Exception as e:
+            print(e)
             return
     else:
         return
@@ -97,6 +98,7 @@ async def on_message_edit(before, after):
                 logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
                 await logchannel.send(embed=embed)
             except Exception as e:
+                print(e)
                 return
         else:
             return
