@@ -31,7 +31,7 @@ class Bigword:
                     try:
                         newtext += f":{numbers[int(letter.lower())]}:"
                     except:
-                        pass
+                         newtext += letter
             embed=discord.Embed(description=newtext, color=0x8e370d)
             embed.set_author(name=message.author.display_name, url=message.author.avatar_url, icon_url=message.author.avatar_url)
             embed.set_footer(text=message.created_at)
