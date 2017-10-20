@@ -20,13 +20,8 @@ class Reset:
         if person == None:
             person = message.author
         if str(message.guild.id) in data:
-            try:
-                data[str(message.guild.id)]["tickets-storage"][str(person.id)]["credits"] -= 0
-            except:
-                data[str(message.guild.id)]["tickets-storage"][str(person.id)] = {
-                    ("credits") : 0
-                }
             if str(person).lower() != "all":
+                print("Not all")
                 try:
                     data[str(message.guild.id)]["tickets-storage"][str(person.id)]["credits"] -= 0
                 except:
@@ -55,8 +50,9 @@ class Reset:
                     except Exception as e:
                         return
             else:
-                for person in data[str(message.guild.id)]["tickets-storage"]:
-                    person["credits"] = 0
+                print("All")
+                for personz in data[str(message.guild.id)]["tickets-storage"]:
+                    data[str(message.guild.id)]["tickets-storage"][personz]["credits"] = 0
                 await message.channel.send(f"Everyone now has the balance of 0.")
                 with open("Data/servers.json", "w") as thejsonfile2:
                     json.dump(data, thejsonfile2)
