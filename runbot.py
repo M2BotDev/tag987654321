@@ -67,7 +67,7 @@ async def on_message_delete(message):
             whofrom = message.author
             action = f"Deleted message"
             created_at = message.created_at
-            embed=discord.Embed(title=f"Edited log from {whofrom.display_name}({whofrom.id})", color=0x8e370d)
+            embed=discord.Embed(description=f"Deleted log from ``{whofrom.display_name}``({whofrom.id})", color=0x8e370d)
             embed.add_field(name="**MESSAGE**", value=message.content, inline=False)
             embed.add_field(name="**CHANNEL**", value=message.channel, inline=False)
             embed.set_footer(text=created_at)
@@ -90,7 +90,7 @@ async def on_message_edit(before, after):
             try:
                 whofrom = message.author
                 created_at = message.created_at
-                embed=discord.Embed(title=f"Edited log from {whofrom.display_name}({whofrom.id})", color=0x8e370d)
+                embed=discord.Embed(description=f"Edited log from ``{whofrom.display_name}``({whofrom.id})", color=0x8e370d)
                 embed.add_field(name="**BEFORE**", value=before.content, inline=False)
                 embed.add_field(name="**EDITED**", value=after.content, inline=False)
                 embed.add_field(name="**CHANNEL**", value=after.channel, inline=False)
