@@ -36,25 +36,25 @@ class Leaderboard:
             storage = server["tickets-storage"]
             for player in storage:
                 cred = storage[player]["credits"]
-                if cred > first[1]:
+                if cred >= first[1]:
                     fifth = fourth
                     fourth = third
                     third = second
                     second = first
                     first = [message.guild.get_member(int(player)).name, cred]
-                elif cred > second[1]:
+                elif cred >= second[1]:
                     fifth = fourth
                     fourth = third
                     third = second
                     second = [message.guild.get_member(int(player)).name, cred]
-                elif cred > third[1]:
+                elif cred >= third[1]:
                     fifth = fourth
                     fourth = third
                     third = [message.guild.get_member(int(player)).name, cred]
-                elif cred > fourth[1]:
+                elif cred >= fourth[1]:
                     fifth = fourth
                     fourth = [message.guild.get_member(int(player)).name, cred]
-                elif cred > fifth[1]:
+                elif cred >= fifth[1]:
                     fifth = [message.guild.get_member(int(player)).name, cred]
 
             if first[0] != "":
