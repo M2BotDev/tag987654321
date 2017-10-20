@@ -20,7 +20,7 @@ loopthrough("Commands", cmds)
     
 
 async def getpre(bot, message):
-    with open("data/servers.json") as serverjson:
+    with open("Data/servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
@@ -34,7 +34,7 @@ bot.remove_command("help")
 @bot.event
 async def on_guild_join(guild):
     try:
-        with open("data/servers.json") as serverjsona:
+        with open("Data/servers.json") as serverjsona:
             guilddata = json.load(serverjsona)
         if str(guild.id) in guilddata:
             pass
@@ -60,7 +60,7 @@ async def on_guild_join(guild):
 
 @bot.event
 async def on_message_delete(message):
-    with open("Data\\servers.json", "r") as filejson:
+    with open("Data/servers.json", "r") as filejson:
         jsondatafile = json.load(filejson)
     if str(message.guild.id) in jsondatafile:
         try:
@@ -82,7 +82,7 @@ async def on_message_edit(before, after):
     message = after
     if after.content == before.content:
         return
-    with open("Data\\servers.json", "r") as filejson:
+    with open("Data/servers.json", "r") as filejson:
         jsondatafile = json.load(filejson)
     try:
         if str(message.guild.id) in jsondatafile:
@@ -126,7 +126,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     pre = "$"
-    with open("data/servers.json") as serverjson:
+    with open("Data/servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
@@ -134,7 +134,7 @@ async def on_message(message):
 
     if message.content.lower().startswith(bot.user.mention + " prefix"):
         await message.channel.send(f"Prefix is {pre}")
-    with open("Data\\servers.json") as theserverjsonforlevels:
+    with open("Data/servers.json") as theserverjsonforlevels:
         data = json.load(theserverjsonforlevels)
     user = message.author
     try:
@@ -159,7 +159,7 @@ async def on_message(message):
                 authorin["XP"] -= authorin["LVL"] * 100
                 authorin["LVL"] += 1
                 await message.channel.send(f"{user.mention}, Good job on ranking up! You're now level {authorin['LVL']}!")
-        with open("Data\\servers.json", "w") as theserverjsonforlevels2:
+        with open("Data/servers.json", "w") as theserverjsonforlevels2:
             json.dump(data,theserverjsonforlevels2)
     except:
         return
