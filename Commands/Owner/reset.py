@@ -46,7 +46,6 @@ class Reset:
                         await logchannel.send(embed=embed)
                     except Exception as e:
                         return
-                else:
             else:
                 for person in data[str(message.guild.id)]["tickets-storage"]:
                     person["credits"] = 0
