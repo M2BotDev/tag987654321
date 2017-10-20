@@ -69,7 +69,7 @@ async def on_message_delete(message):
             created_at = message.created_at
             embed=discord.Embed(title=f"Edited log from {whofrom.display_name}({whofrom.id})", color=0x8e370d)
             embed.add_field(name="**MESSAGE**", value=message.content, inline=False)
-            embed.add_field(name="**CHANNEL**", value=after.channel, inline=False)
+            embed.add_field(name="**CHANNEL**", value=message.channel, inline=False)
             embed.set_footer(text=created_at)
             logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
             await logchannel.send(embed=embed)
