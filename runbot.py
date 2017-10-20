@@ -20,7 +20,7 @@ loopthrough("Commands", cmds)
     
 
 async def getpre(bot, message):
-    with open("Data/servers.json") as serverjson:
+    with open("data/servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
@@ -34,7 +34,7 @@ bot.remove_command("help")
 @bot.event
 async def on_guild_join(guild):
     try:
-        with open("Data/servers.json") as serverjsona:
+        with open("data/servers.json") as serverjsona:
             guilddata = json.load(serverjsona)
         if str(guild.id) in guilddata:
             pass
@@ -46,7 +46,7 @@ async def on_guild_join(guild):
                 ("verified-role"): "__disabled__",
                 ("tickets-storage") : {}
             }
-            with open("Data/servers.json", "w") as serverjson2:
+            with open("data/servers.json", "w") as serverjson2:
                 json.dump(guilddata, serverjson2)
     except Exception as e:
         print(e)
@@ -60,16 +60,16 @@ async def on_guild_join(guild):
 
 @bot.event
 async def on_message_delete(message):
-    with open("Data/servers.json", "r") as filejson:
+    with open("Data\\servers.json", "r") as filejson:
         jsondatafile = json.load(filejson)
     if str(message.guild.id) in jsondatafile:
         try:
             whofrom = message.author.name
             action = f"Deleted message"
             created_at = message.created_at
-            embed=discord.Embed(title=f"From : {whofrom}", color=0x8e370d)
-            embed.add_field(name="ACTION", value=action, inline=False)
-            embed.add_field(name="Message", value=message.content, inline=False)
+            embed=discord.Embed(title=f"Edited log from {whofrom.display_name}({whofrom.id})", color=0x8e370d)
+            embed.add_field(name="MESSAGE", value=message.content, inline=False)
+            embed.add_field(name="**CHANNEL**", value=after.channel, inline=False)
             embed.set_footer(text=created_at)
             logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
             await logchannel.send(embed=embed)
@@ -82,16 +82,17 @@ async def on_message_edit(before, after):
     message = after
     if after.content == before.content:
         return
-    with open("Data/servers.json", "r") as filejson:
+    with open("Data\\servers.json", "r") as filejson:
         jsondatafile = json.load(filejson)
     try:
         if str(message.guild.id) in jsondatafile:
             try:
                 whofrom = message.author.name
                 created_at = message.created_at
-                embed=discord.Embed(title=f"From : {whofrom}", color=0x8e370d)
-                embed.add_field(name="BEFORE", value=before.content, inline=False)
-                embed.add_field(name="EDITED", value=after.content, inline=False)
+                embed=discord.Embed(title=f"Edited log from {whofrom.display_name}({whofrom.id})", color=0x8e370d)
+                embed.add_field(name="**BEFORE**", value=before.content, inline=False)
+                embed.add_field(name="**EDITED**", value=after.content, inline=False)
+                embed.add_field(name="**CHANNEL**", value=after.channel, inline=False)
                 embed.set_footer(text=created_at)
                 logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
                 await logchannel.send(embed=embed)
@@ -103,6 +104,7 @@ async def on_message_edit(before, after):
         return
 @bot.event
 async def on_ready():
+    bot.user.edit(avatar=open("avatar.png", "rb"))
     if __name__ == "__main__":
         for extension in cmds:
             try:
@@ -118,13 +120,13 @@ async def on_ready():
                     bot.load_extension("Commands." + extension)
             except Exception as e:
                 exc = '{}: {}'.format(type(e).__name__, e)
-                print('Failed to load extension {}/n{}'.format(extension, exc))
+                print('Failed to load extension {}\n{}'.format(extension, exc))
     print("Ready!")
 
 @bot.event
 async def on_message(message):
     pre = "$"
-    with open("Data/servers.json") as serverjson:
+    with open("data/servers.json") as serverjson:
         serverdata = json.load(serverjson)
     x = message.guild
     if str(x.id) in serverdata:
@@ -132,7 +134,7 @@ async def on_message(message):
 
     if message.content.lower().startswith(bot.user.mention + " prefix"):
         await message.channel.send(f"Prefix is {pre}")
-    with open("Data/servers.json") as theserverjsonforlevels:
+    with open("Data\\servers.json") as theserverjsonforlevels:
         data = json.load(theserverjsonforlevels)
     user = message.author
     try:
@@ -157,7 +159,7 @@ async def on_message(message):
                 authorin["XP"] -= authorin["LVL"] * 100
                 authorin["LVL"] += 1
                 await message.channel.send(f"{user.mention}, Good job on ranking up! You're now level {authorin['LVL']}!")
-        with open("Data/servers.json", "w") as theserverjsonforlevels2:
+        with open("Data\\servers.json", "w") as theserverjsonforlevels2:
             json.dump(data,theserverjsonforlevels2)
     except:
         return
