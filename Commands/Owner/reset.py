@@ -26,9 +26,17 @@ class Reset:
                 data[str(message.guild.id)]["tickets-storage"][str(person.id)] = {
                     ("credits") : 0
                 }
-            if person.lower() != "all":
+            if str(person).lower() != "all":
+                try:
+                    data[str(message.guild.id)]["tickets-storage"][str(person.id)]["credits"] -= 0
+                except:
+                    data[str(message.guild.id)]["tickets-storage"][str(person.id)] = {
+                        ("credits") : 0
+                    }
                 if message.mentions[0]:
                     person = message.mentions[0]
+                else:
+                    person = message.author
                 await message.channel.send(f"Reseted ``{person}``'s balance. <:nbaghost:368751631455748096> They now have ``{data[str(message.guild.id)]['tickets-storage'][str(person.id)]['credits']}`` tickets.")
                 with open("Data/servers.json", "w") as thejsonfile2:
                     json.dump(data, thejsonfile2)
