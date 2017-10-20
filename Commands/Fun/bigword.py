@@ -27,6 +27,8 @@ class Bigword:
                     newtext += f":hash:"
                 elif letter.lower() == " ":
                     newtext += f"     "
+                elif letter.lower() == "!":
+                    newtext += f":exclamation:"
                 else:
                     try:
                         newtext += f":{numbers[int(letter.lower())]}:"
