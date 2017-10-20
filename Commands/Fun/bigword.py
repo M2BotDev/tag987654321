@@ -29,11 +29,19 @@ class Bigword:
                     newtext += f"     "
                 elif letter.lower() == "!":
                     newtext += f":exclamation:"
+                elif letter.lower() == "?":
+                    newtext += f":question:"
+                elif letter.lower() == "+":
+                    newtext += f":heavy_plus_sign:"
+                elif letter.lower() == "$":
+                    newtext += f":heavy_dollar_sign:"
+                elif letter.lower() == "-":
+                    newtext += f":heavy_minus_sign:"
                 else:
                     try:
                         newtext += f":{numbers[int(letter.lower())]}:"
                     except:
-                         newtext += letter
+                         newtext += f"**{letter}**"
             embed=discord.Embed(description=newtext, color=0x8e370d)
             embed.set_author(name=message.author.display_name, url=message.author.avatar_url, icon_url=message.author.avatar_url)
             embed.set_footer(text=message.created_at)
