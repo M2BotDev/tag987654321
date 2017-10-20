@@ -10,7 +10,7 @@ class Prefix:
         self.bot = bot
         self.type = "Roblox"
     @commands.command(no_pm=True, pass_contex=True)
-    async def prefix(self,ctx, pre="$"):
+    async def prefix(self,ctx,*, pre="$"):
         message = ctx.message
         if message.author.id == message.guild.owner.id or message.author.id == 264312374931095552:
             pass

@@ -52,7 +52,7 @@ async def on_guild_join(guild):
         print(e)
     for channel in guild.channels:
         try:
-            await channel.send("Thanks for inviting me! Here are some things you might want to know before getting started!\n\n**Verification**\nYou can do $setverified ROLENAME to change the role that users get when verifying. If the role doesn't exist they can't verify.\n**Logs**\nGo into the channel you'd like to use for logs and do $setlogchannel to receive logs there. If you don't like the logs you can do $removelogchannel to stop the bot from sending logs there. Or you can move it to a different channel.\n**Prefix**\nIncase the bots prefix overlaps with another bot you can do $prefix NEWPREFIX to change it. Keep in mind if you want to change the prefix again you have to use your new prefix for the prefix command.")
+            await channel.send(f"Thanks for inviting me! Here are some things you might want to know before getting started!\n\n**Verification**\nYou can do $setverified ROLENAME to change the role that users get when verifying. If the role doesn't exist they can't verify.\n**Logs**\nGo into the channel you'd like to use for logs and do $setlogchannel to receive logs there. If you don't like the logs you can do $removelogchannel to stop the bot from sending logs there. Or you can move it to a different channel.\n**Prefix**\nIncase the bots prefix overlaps with another bot you can do $prefix NEWPREFIX to change it. Keep in mind if you want to change the prefix again you have to use your new prefix for the prefix command. However if you ever forget the prefix you can always do {bot.mention} prefix")
             return
         except Exception as e:
             print(e)
@@ -135,7 +135,7 @@ async def on_message(message):
         pre = serverdata[str(x.id)]["prefix"]
 
     if message.content.lower().startswith(bot.user.mention + " prefix"):
-        await message.channel.send(f"Prefix is {pre}")
+        await message.channel.send(f"**Prefix is **``{pre}``")
     with open("Data/servers.json") as theserverjsonforlevels:
         data = json.load(theserverjsonforlevels)
     user = message.author
