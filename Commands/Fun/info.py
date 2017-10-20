@@ -30,7 +30,7 @@ class Info:
         embed.add_field(name="BOT", value=bot, inline=True)
         embed.add_field(name="NICKNAME", value=nickname, inline=True)
         embed.add_field(name="OWNER", value=owner, inline=True)
-        embed.add_field(name="Highest Role", value=mention.roles[0], inline=True)
+        embed.add_field(name="Highest Role", value=mention.roles[len(mention.roles)], inline=True)
         embed.set_thumbnail(url=mention.avatar_url)
         embed.set_footer(text=mention.created_at)
         await message.channel.send(embed=embed)
