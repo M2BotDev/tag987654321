@@ -5,7 +5,7 @@ import random
 import requests
 
 class Removelogchannel:
-    """$**removelogchannel**"""
+    """Removes the log channel. ``$removelogchannel``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

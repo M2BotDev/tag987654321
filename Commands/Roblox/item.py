@@ -5,7 +5,7 @@ import random
 import requests
 
 class Item:
-    """$**item ROBLOXHATNAME**"""
+    """Searches for an item in the roblox database. ``$item paint bucket``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

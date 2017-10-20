@@ -5,7 +5,7 @@ import random
 import requests
 
 class Setlogchannel:
-    """$**setlogchannel**"""
+    """Sets the log channel to the current channel. ``$setlogchannel``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

@@ -9,7 +9,7 @@ letters_three = ["obc", "tbc", "bc", "nbc"]
 letters_four = ["meepcity", "build a hideout and fight", "no game", "shoe", "simulator", "wanna be friends"]
 
 class Verify:
-    """$**verify ROBLOXNAME**"""
+    """Verifys your roblox account by username. You must enter a code during this process. ``$verify ROBLOX``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

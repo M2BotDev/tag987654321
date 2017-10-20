@@ -54,9 +54,10 @@ class Help:
                                     xgg += 1
                                 else:
                                     z = self.bot.cogs[capitalize_nth(w, 0)]
-                                    embed.add_field(name=w, value=z.__doc__, inline=False)
+                                    embed.add_field(name=f"**{w}**", value=z.__doc__, inline=False)
                                     xgg += 1
                         else:
+                            xgg = 1
                             string = f"**{i}** - *COMMAND INFO*.\n"
                         return embed,xgg
             try:

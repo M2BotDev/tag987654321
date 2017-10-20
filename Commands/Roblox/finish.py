@@ -5,7 +5,7 @@ import random
 import requests
 
 class Finish:
-    """$**finish**"""
+    """Finishes the verification process. ``$finish``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

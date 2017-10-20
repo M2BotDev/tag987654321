@@ -5,7 +5,7 @@ import random
 import requests
 
 class Whois:
-    """$**whois** or **whois @user#1234**"""
+    """Checks for a roblox account linked to a discord member. ``$whois @user#1234``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"

@@ -5,7 +5,7 @@ import random
 import requests
 
 class Join:
-    """$**join** or **join GIVEAWAY-NAME**"""
+    """Joins a giveaway. ``$join CODE``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"

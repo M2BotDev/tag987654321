@@ -5,7 +5,7 @@ import random
 import requests
 
 class Setverified:
-    """$**setverified ROLENAME**"""
+    """Sets the role members get when verified. ``$setverified Members`` ``WARNING, IT'S ROLE BY ROLE NAME NOT MENTION!``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Giveaway"
