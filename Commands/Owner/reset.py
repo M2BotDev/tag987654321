@@ -5,7 +5,7 @@ import random
 import requests
 
 class Reset:
-    """Subtracts tickets to a discord user. ``$subtract 20 @user#1234`` ``Requires you to be the owner of the discord server.``"""
+    """Resets a users balance to 0. ``$reset all`` ``Requires you to be the owner of the discord server.``"""
     def __init__(self, bot):
         self.bot = bot
         self.type = "Roblox"
@@ -17,6 +17,8 @@ class Reset:
             return
         with open("Data/servers.json", "r") as thejsonfile:
             data = json.load(thejsonfile)
+        if person == None:
+            person = message.author
         if str(message.guild.id) in data:
             try:
                 data[str(message.guild.id)]["tickets-storage"][str(person.id)]["credits"] -= amount
@@ -27,8 +29,6 @@ class Reset:
             if person.lower() != "all":
                 if message.mentions[0]:
                     person = message.mentions[0]
-                else:
-                    person = message.author
                 await message.channel.send(f"Reseted ``{person}``'s balance. <:nbaghost:368751631455748096> They now have ``{data[str(message.guild.id)]['tickets-storage'][str(person.id)]['credits']}`` tickets.")
                 with open("Data/servers.json", "w") as thejsonfile2:
                     json.dump(data, thejsonfile2)
