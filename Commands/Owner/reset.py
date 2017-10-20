@@ -21,10 +21,10 @@ class Reset:
             person = message.author
         if str(message.guild.id) in data:
             try:
-                data[str(message.guild.id)]["tickets-storage"][str(person.id)]["credits"] -= amount
+                data[str(message.guild.id)]["tickets-storage"][str(person.id)]["credits"] -= 0
             except:
                 data[str(message.guild.id)]["tickets-storage"][str(person.id)] = {
-                    ("credits") : -amount
+                    ("credits") : 0
                 }
             if person.lower() != "all":
                 if message.mentions[0]:
