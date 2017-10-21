@@ -10,7 +10,7 @@ class Purge:
         self.bot = bot
         self.type = "Giveaway"
     @commands.has_permissions(manage_messages=True)
-    @commands.command(no_pm=True, pass_contex=True)
+    @commands.command(no_pm=True, pass_contex=True, aliases=["prune", "clear", "clean"])
     async def purge(self,ctx, amount=None):
         message = ctx.message
         try:
