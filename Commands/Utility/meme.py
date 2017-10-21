@@ -20,6 +20,7 @@ class Meme:
         with open("Data/memes.json") as memejson:
             data = json.load(memejson)
         if mode == None:
+            random.seed()
             memelink = data["links"][random.randint(0, len(data["links"])-1)]
             embed=discord.Embed(color=0x8e370d)
             embed.set_author(name="Meme", icon_url=message.author.avatar_url)
@@ -28,11 +29,14 @@ class Meme:
             await message.channel.send(embed=embed)
         elif mode == "add":
             if message.author.id != 264312374931095552:
+                await message.channel.send("Must be bot creator!")
                 return
             if link != None:
                 data["links"].append(link)
             with open("Data/memes.json", "w") as memejson2:
                 json.dump(data, memejson2)
+            await message.channel.send("Successfully added meme!")
+            message.delete()
             
 
 
