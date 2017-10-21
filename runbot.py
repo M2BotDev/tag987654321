@@ -63,7 +63,7 @@ async def on_guild_join(guild):
 async def on_message_delete(message):
      async for entry in message.guild.audit_logs(limit=3, action=discord.AuditLogAction.message_delete):
          print(abs(datetime.datetime.utcnow().timestamp() - discord.utils.snowflake_time(entry.id).timestamp()))
-        if abs(datetime.datetime.utcnow().timestamp() - discord.utils.snowflake_time(entry.id).timestamp()) < 8:
+         if abs(datetime.datetime.utcnow().timestamp() - discord.utils.snowflake_time(entry.id).timestamp()) < 8:
             deleter = entry.user
             with open("Data/servers.json", "r") as filejson:
                 jsondatafile = json.load(filejson)
