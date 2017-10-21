@@ -15,7 +15,7 @@ class Meme:
     def __init__(self, bot):
         self.bot = bot
     @commands.command(no_pm=True, pass_contex=True)
-    async def meme(self,ctx,*,mode=None, link=None):
+    async def meme(self,ctx,mode=None, link=None):
         message = ctx.message
         with open("Data/memes.json") as memejson:
             data = json.load(memejson)
