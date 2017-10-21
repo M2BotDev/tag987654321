@@ -23,7 +23,7 @@ class Mock:
                     newtext += x.lower()
             embed=discord.Embed(description=newtext, color=0x8e370d)
             embed.set_author(name=message.author.display_name, url=message.author.avatar_url, icon_url=message.author.avatar_url)
-            embed.set_thumbnail(url="http://i0.kym-cdn.com/entries/icons/original/000/022/940/spongebobicon.jpg")
+            embed.set_image(url="http://i0.kym-cdn.com/entries/icons/original/000/022/940/spongebobicon.jpg")
             embed.set_footer(text=message.created_at)
             await message.channel.send(embed=embed)
 
