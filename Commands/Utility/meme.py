@@ -20,7 +20,7 @@ class Meme:
         with open("Data/memes.json") as memejson:
             data = json.load(memejson)
         if mode == None:
-            memelink = data["links][random.randint(0, len(data["links"]))]
+            memelink = data["links"][random.randint(0, len(data["links"]))]
             embed=discord.Embed(color=0x8e370d)
             embed.set_author(name="Meme", icon_url=message.author.avatar_url)
             embed.set_image(url=memelink)
