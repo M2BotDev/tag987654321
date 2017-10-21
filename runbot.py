@@ -62,27 +62,28 @@ async def on_guild_join(guild):
 @bot.event
 async def on_message_delete(message):
      async for entry in message.guild.audit_logs(limit=3, action=discord.AuditLogAction.message_delete):
-            if abs(datetime.datetime.utcnow().timestamp() - discord.utils.snowflake_time(entry.id).timestamp()) < 8:
-                deleter = entry.user
-                with open("Data/servers.json", "r") as filejson:
-                    jsondatafile = json.load(filejson)
-                if str(message.guild.id) in jsondatafile:
-                    try:
-                        whofrom = message.author
-                        action = f"Deleted message"
-                        created_at = message.created_at
-                        embed=discord.Embed(description=f"Deleted log from ``{whofrom.display_name}``({whofrom.id})\n", color=0x8e370d)
-                        embed.add_field(name="**MESSAGE**", value=message.content, inline=False)
-                        embed.add_field(name="**DELETED BY**", value=deleter.display_name+f"({deleter.mention})", inline=False)
-                        embed.add_field(name="**CHANNEL**", value=message.channel, inline=False)
-                        embed.set_footer(text=created_at)
-                        logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
-                        await logchannel.send(embed=embed)
-                    except Exception as e:
-                        print(e)
-                        return
-                else:
+         print(abs(datetime.datetime.utcnow().timestamp() - discord.utils.snowflake_time(entry.id).timestamp()))
+        if abs(datetime.datetime.utcnow().timestamp() - discord.utils.snowflake_time(entry.id).timestamp()) < 8:
+            deleter = entry.user
+            with open("Data/servers.json", "r") as filejson:
+                jsondatafile = json.load(filejson)
+            if str(message.guild.id) in jsondatafile:
+                try:
+                    whofrom = message.author
+                    action = f"Deleted message"
+                    created_at = message.created_at
+                    embed=discord.Embed(description=f"Deleted log from ``{whofrom.display_name}``({whofrom.id})\n", color=0x8e370d)
+                    embed.add_field(name="**MESSAGE**", value=message.content, inline=False)
+                    embed.add_field(name="**DELETED BY**", value=deleter.display_name+f"({deleter.mention})", inline=False)
+                    embed.add_field(name="**CHANNEL**", value=message.channel, inline=False)
+                    embed.set_footer(text=created_at)
+                    logchannel = discord.utils.get(message.guild.channels, id = jsondatafile[str(message.guild.id)]["log-channel"])
+                    await logchannel.send(embed=embed)
+                except Exception as e:
+                    print(e)
                     return
+            else:
+                return
 @bot.event
 async def on_message_edit(before, after):
     message = after
