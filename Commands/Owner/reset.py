@@ -22,17 +22,17 @@ class Reset:
         if str(message.guild.id) in data:
             if str(person).lower() != "all":
                 print("Not all")
+                if message.mentions[0]:
+                    person = message.mentions[0]
+                else:
+                    person = message.author
                 try:
                     data[str(message.guild.id)]["tickets-storage"][str(person.id)]["credits"] -= 0
                 except:
                     data[str(message.guild.id)]["tickets-storage"][str(person.id)] = {
                         ("credits") : 0
                     }
-                if message.mentions[0]:
-                    person = message.mentions[0]
-                else:
-                    person = message.author
-                await message.channel.send(f"Reseted ``{person}``'s balance. <:nbaghost:368751631455748096> They now have ``{data[str(message.guild.id)]['tickets-storage'][str(person.id)]['credits']}`` tickets.")
+                await message.channel.send(f"Reseted ``{person.name}``'s balance. <:nbaghost:368751631455748096> They now have ``{data[str(message.guild.id)]['tickets-storage'][str(person.id)]['credits']}`` tickets.")
                 with open("Data/servers.json", "w") as thejsonfile2:
                     json.dump(data, thejsonfile2)
                 with open("Data/servers.json", "r") as filejson:
@@ -40,7 +40,7 @@ class Reset:
                 if str(message.guild.id) in jsondatafile:
                     try:
                         whofrom = message.author.name
-                        action = f"Reseted {person}'s balance to 0."
+                        action = f"Reseted {person.name}'s balance to 0."
                         created_at = message.created_at
                         embed=discord.Embed(title=f"From : {whofrom}", color=0x8e370d)
                         embed.add_field(name="ACTION", value=action, inline=False)
